@@ -1,0 +1,25 @@
+server:
+  port: 9090
+  
+
+spring:
+  boot:
+    admin:
+      discovery:
+        ignored-services: gateaway-service
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone:
+        {cipher}5b3fa6dd2a47d4999c229cf6bf570a300af8374a5111744b6cee4ad6bc9898e728e8d7439017e12a31753e5325ea385a
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
