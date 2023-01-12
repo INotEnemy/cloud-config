@@ -1,13 +1,6 @@
 server:
-  port: 9090
+  port: 8072
   
-
-spring:
-  boot:
-    admin:
-      discovery:
-        ignored-services: gateaway-server
-
 eureka:
   instance:
     preferIpAddress: true
@@ -16,9 +9,17 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8070/eureka/ #{cipher}5b3fa6dd2a47d4999c229cf6bf570a300af8374a5111744b6cee4ad6bc9898e728e8d7439017e12a31753e5325ea385a
+      
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: *
